@@ -179,3 +179,96 @@ def f(x, y):
 print(f(1, 7) * f(7, 12))
 """
 """============================================================================="""
+"""============================================================================="""
+# вариант 69857
+"""
+print('b c a')
+for a in range(2):
+    for b in range(2):
+        for c in range(2):
+            if ((a and b) or (c and (not (a) or b))) == 1:
+                print(b, c, a)
+"""
+"""
+for n in range(1, 10**3):
+    r = bin(n)[2:]
+    if r.count("1") > r.count("1"):
+        r += "0"
+    else:
+        r += "0"
+    r = int(r, 2)
+    if r < 100:
+        print(r)
+"""
+"""
+from itertools import product
+
+k = 0
+for r in range(3, 8):
+    lst = product("ксения", repeat=r)
+    for i in lst:
+        s = "".join(i)
+        if (s[1:].count('к') == s[1:].count('с') == s[1:].count('н') == 0) \
+            and (s.count('е') <= 2) and (s.count('и') <= 2) \
+                and (s.count('я') <= 2):
+            k += 1
+print(k)
+"""
+"""
+n = 123 * "4"
+while "4444" in n or "7777" in n:
+    if "4444" in n:
+        n = n.replace("4444", "77", 1)
+    else:
+        n = n.replace("7777", "44", 1)
+print(n)
+"""
+"""
+def f(x, y):
+    s = ''
+    while x != 0:
+        s = str(x % y) + s
+        x //= y
+    return sum(int(i) for i in s)
+
+lst = []
+for i in range(2, 11):
+    lst.append((f(2345, i), i))
+print(sorted(lst))
+"""
+"""
+def f(n):
+    if n <= 1: return 3
+    return f(n - 1) + 2 * f(n - 2) - 5
+
+print(f(122))
+"""
+"""
+# p>2 p==2 any any
+# p>3 p==3 any all
+# all any p==2 or p==4 # p>2 # p>4
+def f(x, y, p):
+    if x + y >= 78 or p > 4:
+        return p == 2 or p == 4
+    h = [
+        f(x + 3, y, p + 1),
+        f(x * 2, y, p + 1),
+        f(x, y + 3, p + 1),
+        f(x, y * 2, p + 1)
+    ]
+    return all(h) if p % 2 == 0 else any(h)
+
+for i in range(1, 71):
+    if f(7, i, 0):
+        print(i)
+"""
+"""
+def f(x, y):
+    if x > y or x == 18:
+        return 0
+    if x == y:
+        return 1
+    return f(x + 1, y) + f(x + 3, y)
+
+print(f(3, 12) * f(12, 21))
+"""
